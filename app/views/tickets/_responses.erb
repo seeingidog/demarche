@@ -1,0 +1,6 @@
+<% @ticket_responses.each do |response| %>
+	<span class="label label-success"><%= response.user ? "Agent" : "Requester" %></span>
+	<span class="badge"><%= response.user ? response.user.email : response.requester.email_address %></span>
+	<i><%= distance_of_time_in_words(Time.now, response.created_at) %> ago</i>
+	<div class="well well-small"><%= response.body %></div>
+<% end %>

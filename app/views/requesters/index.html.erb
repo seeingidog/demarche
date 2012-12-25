@@ -1,0 +1,19 @@
+<h1>Requesters</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Requests</th>
+  </tr>
+
+<% @requesters.each do |requester| %>
+  <tr>
+    <td><%= requester.name %></td>
+    <td><%= requester.email_address %></td>
+    <td><%= requester.tickets.count %></td>
+
+  </tr>
+<% end %>
+</table>
+

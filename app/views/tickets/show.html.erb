@@ -1,0 +1,19 @@
+<% if notice %><p id="notice" class="alert alert-success"><%= notice %></p><% end %>
+
+<p>
+  <h3><%= @ticket.subject %></h3>
+  <span class="label label-info"><%= @ticket.state %></span>
+  <%= pluralize(@ticket_responses.count, "response")%>
+
+</p>
+
+<span class="label label-success"><%= @ticket.user ? "Agent" : "Requester" %></span>
+<span class="badge"><%= @ticket.requester.email_address %></span>
+<i><%= distance_of_time_in_words(Time.now, @ticket.created_at) %> ago</i>
+<pre><%= @ticket.body %></pre>
+
+<br />
+
+<%= render 'responses' %>
+
+<%= render 'response_form' %>

@@ -1,0 +1,40 @@
+<%= form_for(@ticket, :html => {:class => 'form-horizontal'}) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% @ticket.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <label class="control-label" for="inputRequester">Requester</label>
+    <div class="controls">
+	<%= f.select(:requester_id, Requester.all.collect {|a| [a.name, a.id]}, :html => {:id => 'inputRequester'}) -%>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputSubject">Subject</label>
+    <div class="controls">
+     <%= f.text_field :subject, :html => {:id => 'inputSubject'} %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputBody">Body</label>
+    <div class="controls">
+     <%= f.text_area :body, :html => {:id => 'inputBody'} %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit :class => 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>

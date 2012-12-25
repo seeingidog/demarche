@@ -1,0 +1,9 @@
+= Demarche
+
+Simple but powerful help desk with bug tracker features.
+
+== Features
+
+* Canonical help desk features
+* Social media integration
+
