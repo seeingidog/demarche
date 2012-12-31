@@ -1,4 +1,6 @@
 class TicketResponsesController < ApplicationController
+  before_filter :authenticate_user!
+  
   def create
     @ticketresponse = TicketResponse.new(params[:ticket_response])
     @ticketresponse.user_id = current_user.id

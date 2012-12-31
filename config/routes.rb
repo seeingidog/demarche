@@ -14,6 +14,8 @@ Demarche::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
   match 'tickets/close/:id' => 'tickets#close'
   
+  match 'activity' => 'tickets#activity'
+  
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
@@ -56,7 +58,7 @@ Demarche::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'tickets#index'
+  root :to => 'tickets#activity'
 
   # See how all your routes lay out with "rake routes"
 

@@ -32,6 +32,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    cancan (1.6.8)
     celluloid (0.12.4)
       facter (>= 1.6.12)
       timers (>= 1.0.0)
@@ -108,6 +109,7 @@ GEM
     redis (3.0.2)
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
+    rolify (3.2.0)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -156,6 +158,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   coffee-rails (~> 3.2.1)
   cucumber
   devise
@@ -163,6 +166,7 @@ DEPENDENCIES
   letter_opener
   pg
   rails (= 3.2.9)
+  rolify
   rspec
   sass-rails (~> 3.2.3)
   sidekiq

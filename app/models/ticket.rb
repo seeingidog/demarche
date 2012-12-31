@@ -1,8 +1,10 @@
 class Ticket < ActiveRecord::Base
+  resourcify
+  
   has_many :ticket_responses
   belongs_to :requester
   belongs_to :user
-  attr_accessible :body, :requester_id, :subject, :messageid
+  attr_accessible :body, :requester_id, :subject, :messageid, :state
   
   validates_presence_of :requester_id, :messageid, :body
   validates_uniqueness_of :messageid
@@ -39,13 +41,13 @@ class Ticket < ActiveRecord::Base
       self.messageid = Digest::SHA1.hexdigest(self.body+self.requester.email_address+Time.now.to_s)
     end
   end
-    
+      
   def self.import
     require 'digest'
     imap = Net::IMAP.new('ruby-code.com')
-    imap.authenticate('LOGIN', 'ian@ruby-code.com', 'goatfucker')
+    imap.authenticate('LOGIN', 'support@ruby-code.com', 'Iemoo')
     imap.examine('INBOX')
-    imap.search(["ON", "25-Dec-2012"]).each do |message_id|
+    imap.search(["NEW"]).each do |message_id|
       msg = imap.fetch(message_id, "(ENVELOPE BODY[TEXT])")[0]
       envelope = msg.attr["ENVELOPE"]
       body = msg.attr["BODY[TEXT]"]

@@ -55,6 +55,7 @@
 			</ul>
 				 <ul class="nav pull-right">
 				  <% if user_signed_in? %>
+					<li><span class="badge badge-important"><%= Ticket.where("state = ? or state = ?", 'new', 'need_response').count %></span></li>
 					<li class="dropdown">
 					  <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.email %>   <b class="caret"></b>
 					  </a>
@@ -75,12 +76,9 @@
 
     <div class="container">
         <div class="row">
-          <div class="span9">
+          <div class="span12">
              <%= yield %>
           </div>
-          <div class="span3">
-			<!--lolempty -->
-          </div><!--/span-->
         </div><!--/row-->
 
       <footer>

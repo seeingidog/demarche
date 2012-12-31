@@ -1,0 +1,8 @@
+<ul>
+	<% @stream.each do |stream_item| %>
+		<li>
+			<b><%= stream_item.class.name %></b><br />			
+			<i><%= time_ago_in_words stream_item.created_at %> ago</i></br />
+		</li>
+	<% end %>
+</ul>

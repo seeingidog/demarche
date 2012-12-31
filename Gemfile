@@ -25,3 +25,5 @@ gem 'sidekiq'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'state_machine'
+gem 'cancan'
+gem "rolify"

@@ -10,6 +10,19 @@ class TicketsController < ApplicationController
       format.json { render json: @ticket }
     end
   end
+
+  def activity
+    tickets = Ticket.limit(5)
+    responses = TicketResponse.limit(5)
+    requesters = Requester.limit(5)
+    users = User.limit(5)
+    
+    @stream = (tickets + responses + requesters + users).sort {|x,y| y.created_at <=> x.created_at }
+        
+    respond_to do |format|
+      format.html
+    end
+  end
   
   def index
     @tickets = Ticket.all
