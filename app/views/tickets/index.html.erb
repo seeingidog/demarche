@@ -1,40 +1,43 @@
 <h1>Tickets</h1>
+<% if !@tickets.empty? %>
+	<table class="table table-bordered">
+	  <tr>
+		<th>Age</th>
+	    <th>Subject</th>
+	    <th>Requester</th>
+	    <th>State</th>
+	    <th></th>
+	  </tr>
 
-<table class="table table-bordered">
-  <tr>
-	<th>Age</th>
-    <th>Subject</th>
-    <th>Requester</th>
-    <th>State</th>
-    <th></th>
-  </tr>
+	<% @tickets.each do |ticket| %>
+	  <tr <%= ticket.state == "new" || ticket.state == "need_response" ? " class=warning" : "class=success" %>>
+	    <td><%= distance_of_time_in_words(Time.now, ticket.created_at) %></td>
+	    <td><%= link_to ticket.subject[0..28], ticket %></td>
+	    <td><%= ticket.requester.email_address %></td>
+	    <td><span class="label"><%= ticket.state %></span></td>
+	    <td><%= check_box("post", "validated") %></td>
+	  </tr>
+	<% end %>
+	</table>
 
-<% @tickets.each do |ticket| %>
-  <tr <%= ticket.state == "new" || ticket.state == "need_response" ? " class=warning" : "class=success" %>>
-    <td><%= distance_of_time_in_words(Time.now, ticket.created_at) %></td>
-    <td><%= link_to ticket.subject[0..28], ticket %></td>
-    <td><%= ticket.requester.email_address %></td>
-    <td><span class="label"><%= ticket.state %></span></td>
-    <td><%= check_box("post", "validated") %></td>
-  </tr>
+	<br />
+
+	<div class="actions pull-right">
+		<div class="btn-group">
+		  <a href="<%= new_ticket_path %>"><button class="btn btn-primary" type="button">New Ticket</button></a>
+		  <button class="btn">Action</button>
+		  <button class="btn dropdown-toggle" data-toggle="dropdown">
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu">
+		    <li><a tabindex="-1" href="@">Close Selected</a></li>
+		    <li><a tabindex="-1" href="#">Delete Selected</a></li>
+		    <li><a tabindex="-1" href="#">Something else here</a></li>
+		    <li class="divider"></li>
+		    <li><a tabindex="-1" href="#">Separated link</a></li>
+		  </ul>
+		</div>
+		
+<% else %>
+	No tickets	
 <% end %>
-</table>
-
-<br />
-
-<div class="actions pull-right">
-	<div class="btn-group">
-	  <a href="<%= new_ticket_path %>"><button class="btn btn-primary" type="button">New Ticket</button></a>
-	  <button class="btn">Action</button>
-	  <button class="btn dropdown-toggle" data-toggle="dropdown">
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu">
-	    <li><a tabindex="-1" href="@">Close Selected</a></li>
-	    <li><a tabindex="-1" href="#">Delete Selected</a></li>
-	    <li><a tabindex="-1" href="#">Something else here</a></li>
-	    <li class="divider"></li>
-	    <li><a tabindex="-1" href="#">Separated link</a></li>
-	  </ul>
-	</div>
-

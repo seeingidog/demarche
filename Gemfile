@@ -8,6 +8,7 @@ group :development do
   gem 'rspec'
   gem 'cucumber'
   gem 'wirble'
+  gem 'foreman'
 end
 
 group :assets do
@@ -27,3 +28,4 @@ gem 'twitter-bootstrap-rails'
 gem 'state_machine'
 gem 'cancan'
 gem "rolify"
+gem 'clockwork'

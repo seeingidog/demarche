@@ -47,7 +47,7 @@ class Ticket < ActiveRecord::Base
     imap = Net::IMAP.new('ruby-code.com')
     imap.authenticate('LOGIN', 'support@ruby-code.com', 'Iemoo')
     imap.examine('INBOX')
-    imap.search(["NEW"]).each do |message_id|
+    imap.search(["UNSEEN"]).each do |message_id|
       msg = imap.fetch(message_id, "(ENVELOPE BODY[TEXT])")[0]
       envelope = msg.attr["ENVELOPE"]
       body = msg.attr["BODY[TEXT]"]

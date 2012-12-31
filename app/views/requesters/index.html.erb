@@ -1,19 +1,22 @@
 <h1>Requesters</h1>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Requests</th>
-  </tr>
+<% if !@requesters.empty? %>
+	<table class="table table-bordered">
+	  <tr>
+	    <th>Name</th>
+	    <th>Email</th>
+	    <th>Requests</th>
+	  </tr>
 
-<% @requesters.each do |requester| %>
-  <tr>
-    <td><%= requester.name %></td>
-    <td><%= requester.email_address %></td>
-    <td><%= requester.tickets.count %></td>
+	<% @requesters.each do |requester| %>
+	  <tr>
+	    <td><%= requester.name %></td>
+	    <td><%= requester.email_address %></td>
+	    <td><%= requester.tickets.count %></td>
 
-  </tr>
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	No requesters
 <% end %>
-</table>
-
