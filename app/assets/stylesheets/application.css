@@ -22,7 +22,7 @@ h1 {
     text-shadow: 1px 1px 1px #ccc;
 }
 
-p, div {
+p, div, pre {
     font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
