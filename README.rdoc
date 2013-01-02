@@ -6,9 +6,16 @@ Simple but powerful help desk with bug tracker features.
 
 Configure in .env:
 
-IMAP_USERNAME=
-IMAP_HOST=
-IMAP_PASSWORD=
+IMAP_USERNAME=support@ruby-code.com
+IMAP_HOST=ruby-code.com
+IMAP_PASSWORD=asdfsajdf
+MAILBOX_NAME=support
 
   foreman start
 
+
+
+Problems to fix before opensourcing:
+* New ticket created when requester replies to ticket
+* Says 'your request has been recieved' when the agent opens the ticket
+* Move ticket import code out of model

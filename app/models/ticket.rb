@@ -54,7 +54,7 @@ class Ticket < ActiveRecord::Base
       subject = envelope.subject
       name = envelope.from[0].name
       from_email = envelope.from[0].mailbox + '@' + envelope.from[0].host
-      tn = envelope.to.select {|v| v.mailbox[0..3] == 'ian+'}
+      tn = envelope.to.select {|v| v.mailbox[0..3] == "#{ENV["MAILBOX_NAME"]}+"}
       if tn != []
         ticket_number = tn.first.mailbox.split('+').last
       end
