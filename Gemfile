@@ -9,6 +9,7 @@ group :development do
   gem 'cucumber'
   gem 'wirble'
   gem 'foreman'
+  gem 'meta_request', '0.2.0'
 end
 
 group :assets do

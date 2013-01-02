@@ -2,8 +2,13 @@
 
 Simple but powerful help desk with bug tracker features.
 
-== Features
+== Use
 
-* Canonical help desk features
-* Social media integration
+Configure in .env:
+
+IMAP_USERNAME=
+IMAP_HOST=
+IMAP_PASSWORD=
+
+  foreman start
 

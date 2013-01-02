@@ -44,8 +44,8 @@ class Ticket < ActiveRecord::Base
       
   def self.import
     require 'digest'
-    imap = Net::IMAP.new('ruby-code.com')
-    imap.authenticate('LOGIN', 'support@ruby-code.com', 'Iemoo')
+    imap = Net::IMAP.new(ENV["IMAP_HOST"])
+    imap.authenticate('LOGIN', ENV["IMAP_USERNAME"], ENV["IMAP_PASSWORD"])
     imap.examine('INBOX')
     imap.search(["UNSEEN"]).each do |message_id|
       msg = imap.fetch(message_id, "(ENVELOPE BODY[TEXT])")[0]
