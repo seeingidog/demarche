@@ -22,7 +22,7 @@
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= button_to "Lost Password", new_password_path(resource_name), :class => 'btn', :method => "get" %><br />
+  <%= button_to "Lost Password", new_password_path(resource_name), :class => 'btn btn-warning', :method => "get" %><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

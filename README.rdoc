@@ -1,6 +1,6 @@
 = Demarche
 
-Simple but powerful help desk with bug tracker features.
+Simple but powerful help desk.
 
 == Use
 
@@ -16,6 +16,7 @@ MAILBOX_NAME=support
 
 
 Problems to fix before opensourcing:
-* New ticket created when requester replies to ticket
 * Says 'your request has been recieved' when the agent opens the ticket
 * Move ticket import code out of model
+* Assigned to stuff for tickets
+* filter tickets on /tickets
